@@ -15,23 +15,23 @@ import style from "./SearchBar.module.css";
 //    box-shadow: 5px 5px 5px 0px lightgray;
 // `;
 
-// Dentro de props viene la función onSearch => {onSearch} que viene del padre App
+// Dentro de props viene la función onSearch => {onSearch} que viene de Nav y a su vez de App
 
 export default function SearchBar({onSearch}) {
 
-   const [id, setId] = useState("");
+   const [id, setId] = useState("");   // El valor inicial de la caja de input es vacio ""
 
    const handleChange = (event) => {
-      setId(event.target.value);
+      setId(event.target.value);        // Cuando cambie el valor de la caja de input setea el id
    };
    // (event.target.value) es el id que se digita en la caja y setId modifica el id existente
 
    return (
       <div className={style.bar}>
-         <input type='search' onChange={handleChange} className={style.searchInput} />
+         <input type='search' onChange={handleChange} className={style.searchInput} /> {/*Cada vez que cambie el input ejecuta la función handleChange*/}
          <button
             className={style.searchButton}
-            onClick={() => {
+            onClick={() => {                            // Cuando se le da click al boton debe ejecutar una función que ejecute onSearch
                onSearch(id);
             }}
          >
@@ -40,4 +40,4 @@ export default function SearchBar({onSearch}) {
       </div>
    );
 }
-// Cuando se da click ejecuta una función arrow que ejecuta la función onSearch
+

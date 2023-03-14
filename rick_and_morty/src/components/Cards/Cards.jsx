@@ -6,13 +6,14 @@ import styles from './Cards.module.css'
 // La linea 8 y 9 se podrian escribir asi: export default function Cards({characters}) 
 
 export default function Cards(props) {
-   const { characters, onClose } = props; // Destructuring
+   const { characters, onClose } = props; // Destructuring. El onClose viene de App y ahora va a Card
    // const onClose = () => window.alert("Emulamos que se cierra la card");  // Declaramos una constante para poder toda la función de onClose
    return (
       <div className={styles.divCards}>
          {characters.map(({id, name, species, gender, image}) => { // Se mapea para que a cada characters le apliqe la función Card
             return (                                  
                <Card
+                  key={id}
                   id = {id}
                   name = {name}
                   species = {species}

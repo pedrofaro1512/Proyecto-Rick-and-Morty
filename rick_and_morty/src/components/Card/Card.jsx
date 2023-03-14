@@ -1,4 +1,5 @@
 // importamos los estilos desde Card.modules.css 
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css'
 // en la linea anterior ./ significa en la misma carpeta 
 
@@ -11,11 +12,15 @@ import styles from './Card.module.css'
 // Se hace destructuring
 // export default function Card({name, spacies, gender, image, onClose}) {
 // Si se hace destructuring no se pone => name: {props.name}, sino name: {name}
-export default function Card({id, name, species, gender, image, onClose }) {
+export default function Card({id, name, species, gender, image, onClose }) {     // Card recibe a onClose de Cards por props
    return (
       <div className={styles.divCard}>
-         <button onClick={() => onClose(id)} className={styles.closeBtn}>X</button>
-         <h2>Name: {name}</h2>
+         <button onClick={() => onClose(id)} className={styles.closeBtn}>X</button>    {/*Finalmente onClose se ejecuta en Card al darle click al boton */}
+         
+         <Link to={`/detail/${id}`}>     {/*Al dar click en el nombre de la tarjeta me llevara al detalle del personaje con su id */}
+            <h2>Name: {name}</h2>
+         </Link>
+         
          <h2>Species: {species}</h2>
          <h2>Gender: {gender}</h2>
          <img src={image} alt=""/>
