@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 
-// Nav recibe la función onSearche en props
+// Nav recibe la función onSearche en props 
 
 class Nav extends React.Component {
     constructor(props) {

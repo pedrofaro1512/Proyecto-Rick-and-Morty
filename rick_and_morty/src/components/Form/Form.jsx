@@ -14,7 +14,7 @@ const Form = ({ login }) => {
     password: "",
   });
 
-  const handleInputChange = (event) => {    // Cuando hay cambios en el input 
+  const handleInputChange = (event) => {    // Cuando hay cambios en el input  
     const property = event.target.name;     // Aca extraemos el name
     const value = event.target.value;       // Aca extraemos lo que se escribio
 
@@ -23,7 +23,7 @@ const Form = ({ login }) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault();                               // Previene que se recargue la página
     login(userData);
   };
 

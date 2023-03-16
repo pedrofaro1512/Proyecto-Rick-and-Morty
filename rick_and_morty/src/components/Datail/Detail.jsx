@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 // axios hace lo mimso que fetch
+// Se debe instalar
 
 const Detail = () => {
     const {detailId} = useParams();                            // useParams guarda el valor que hay en :detail que es el id de la url
-    // Si hiciera un console mse mostraria el id del personaje
+       // Si hiciera un console mse mostraria el id del personaje
     const [character, setCharacter] = useState({});            // Para crear un estado
 
     useEffect(() => {

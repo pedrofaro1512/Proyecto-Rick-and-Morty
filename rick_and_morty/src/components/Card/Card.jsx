@@ -1,7 +1,8 @@
 // importamos los estilos desde Card.modules.css 
 import { Link } from 'react-router-dom';
-import styles from './Card.module.css'
+import styles from './Card.module.css';
 // en la linea anterior ./ significa en la misma carpeta 
+import { connect } from "react-redux";
 
 // Se exporta por default porque es la unica función 
 // Nos llegan las siguientes props: name, spacies, gender, image, onClose
@@ -12,7 +13,7 @@ import styles from './Card.module.css'
 // Se hace destructuring
 // export default function Card({name, spacies, gender, image, onClose}) {
 // Si se hace destructuring no se pone => name: {props.name}, sino name: {name}
-export default function Card({id, name, species, gender, image, onClose }) {     // Card recibe a onClose de Cards por props
+function Card({id, name, species, gender, image, onClose }) {     // Card recibe a onClose de Cards por props
    return (
       <div className={styles.divCard}>
          <button onClick={() => onClose(id)} className={styles.closeBtn}>X</button>    {/*Finalmente onClose se ejecuta en Card al darle click al boton */}
@@ -27,6 +28,25 @@ export default function Card({id, name, species, gender, image, onClose }) {    
       </div>
    );
 }
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      addFavorite: (character) => {
+         dispatch(addFavorite(character));
+      },
+      removeFavorite: (id) => {
+         dispatch(removeFavorite(id));
+      },
+   };
+};
+
+const mapStateToProps = (state) => {
+   return {
+      myFavorites: state.myFavorites,
+   };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
 
 // Card recibe los props de Cadrs
 

@@ -1,10 +1,10 @@
 const validation = (userData, errors, setErrors) => {
     // Para el username
-    if (!userData.username) {
+    if (!userData.username)
         setErrors({...errors, username: "Debes comletar este espacio" });   // Si no hay nada en username setear errors con el mensaje
-    } else if (userData.username.length > 35) {
+    else if (userData.username.length > 35)
         setErrors({...errors, username: "No puede tener mas de 35 caracteres" });
-    } else if (
+    else if (
         !/^\w+([-]?\w+)*@\w+([-]?\w+)*(\w{2,3})+$/.test(userData.username)
     ) {
         setErrors({ ...errors, username: "Email invalido" });
