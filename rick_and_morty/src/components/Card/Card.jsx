@@ -3,19 +3,47 @@ import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 // en la linea anterior ./ significa en la misma carpeta 
 import { connect } from "react-redux";
+import { useState } from 'react';
+import { addFavorite, removeFavorite} from "../../redux/actions";
+import { useEffect } from 'react';
 
 // Se exporta por default porque es la unica función 
 // Nos llegan las siguientes props: name, spacies, gender, image, onClose
 // Card utiliza props de app.js
-// Los props llegan dentro de (props) 
+// Los props llegan dentro de (props)
 
 // Podria escribir cada prop dentro de props 
 // Se hace destructuring
 // export default function Card({name, spacies, gender, image, onClose}) {
 // Si se hace destructuring no se pone => name: {props.name}, sino name: {name}
-function Card({id, name, species, gender, image, onClose }) {     // Card recibe a onClose de Cards por props
+function Card({id, name, species, gender, image, onClose, addFavorite, removeFavorite, myFavorites }) {   // Card recibe a onClose de Cards por props y las dos ultimas del dispatch de abajo
+
+   const [isFav, setIsFav] = useState(false);                     // Creación del estado local llamado isFav      
+   const handleFavorite = () => {
+      if (isFav) {                                                // Si isFav es true
+         setIsFav(false);
+         removeFavorite(id);
+      } else {                                                    // Si isFav es false
+         setIsFav(true);
+         addFavorite({id, name, species, gender, image, onClose, addFavorite, removeFavorite});
+      }
+   };
+
+   useEffect(() => {
+      myFavorites.forEach((fav) => {
+         if (fav.id === id) {
+            setIsFav(true);
+         }
+      });
+   }, [myFavorites]);
+
    return (
       <div className={styles.divCard}>
+         {isFav ? (
+            <button onClick={handleFavorite}>❤️</button>
+         ) : (
+            <button onClick={handleFavorite}>🤍</button>
+         )}
          <button onClick={() => onClose(id)} className={styles.closeBtn}>X</button>    {/*Finalmente onClose se ejecuta en Card al darle click al boton */}
          
          <Link to={`/detail/${id}`}>     {/*Al dar click en el nombre de la tarjeta me llevara al detalle del personaje con su id */}
@@ -29,13 +57,13 @@ function Card({id, name, species, gender, image, onClose }) {     // Card recibe
    );
 }
 
-const mapDispatchToProps = (dispatch) => {
-   return {
+const mapDispatchToProps = (dispatch) => {     // Esta dispara las funciones
+   return {                                    // Retorna dos funciones que a su vez despachan
       addFavorite: (character) => {
-         dispatch(addFavorite(character));
+         dispatch(addFavorite(character));     // Despacha un personaje completo y manda a los propr
       },
       removeFavorite: (id) => {
-         dispatch(removeFavorite(id));
+         dispatch(removeFavorite(id));         // Despach un id y manda a los propr
       },
    };
 };

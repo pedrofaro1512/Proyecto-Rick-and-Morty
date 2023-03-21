@@ -1,0 +1,7 @@
+.divFavorite {
+    background: linear-gradient(to top, rgba(80, 63, 59, 0.5), rgba(80, 63, 59, 0));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+}

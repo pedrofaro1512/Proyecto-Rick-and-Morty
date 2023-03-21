@@ -12,6 +12,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About/About.jsx';
 import Detail from './components/Datail/Detail.jsx';
 import Form from './components/Form/Form.jsx';
+import Favorites from './components/Favorites/Favorites.js';
 
 // Rick son objetos que vienen de data.js 
 // characters viene solo, no dentro de un objeto, porque viene por export defauld
@@ -31,7 +32,7 @@ function App () {
   const navigate = useNavigate();
 
   useEffect(() => {                             // Si access es falso nos envia a navigate /, osea no nos deja entrar
-    !access && navigate("/");
+    !access && navigate('/');
   }, [access]);
 
   // ! Credenciales Fake
@@ -90,6 +91,7 @@ function App () {
           element={<Cards characters={characters} onClose={onClose}/>} 
         />
         <Route path="/about" element={<About />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:detailId" element={<Detail />} />    {/*El : sirve para despues recuperar ese dato, ese dato va a estar en useParams*/}
       </Routes>
     </div>

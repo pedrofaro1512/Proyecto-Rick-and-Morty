@@ -2,7 +2,7 @@ import styles from './Form.module.css';
 import { useState } from 'react';
 import validation from './validation';
 
-const Form = ({ login }) => {
+const Form = ({ Login }) => {
 
   const [userData, setUserData] = useState({
     username: "",
@@ -14,17 +14,17 @@ const Form = ({ login }) => {
     password: "",
   });
 
-  const handleInputChange = (event) => {    // Cuando hay cambios en el input  
-    const property = event.target.name;     // Aca extraemos el name
+  const handleInputChange = (event) => {    // Cuando hay cambios en el input       
+    const property = event.target.name;     // Aca extraemos el name de cada input
     const value = event.target.value;       // Aca extraemos lo que se escribio
 
     setUserData({ ...userData, [property]: value});       // seteamos los valores, los que ya habian y la propiedad toma el valor de value
-    validation({ ...userData, [property]: value}, errors, setErrors)
+    setErrors(validation({ ...userData, [property]: value}))
   };
 
   const submitHandler = (event) => {
     event.preventDefault();                               // Previene que se recargue la página
-    login(userData);
+    Login(userData);
   };
 
   return (
