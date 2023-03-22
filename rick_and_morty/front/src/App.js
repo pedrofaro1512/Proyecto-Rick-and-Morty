@@ -42,21 +42,21 @@ function App () {
   //! EVENT HANDLERS
   // La función onSearch agrega personajes
   const onSearch = (id) => {
-    const URL_BASE = "https://be-a-rym.up.railway.app/api";
-    const KEY = "10057de3f785.b338ae7bc8031b0e1a82";
+    const URL_BASE = "http://localhost:3001/rickandmorty";
+    // const KEY = "10057de3f785.b338ae7bc8031b0e1a82";
 
     if(characters.find((char) => char.id === id)) {   // Si el caracter ya esta arroja un alert
       return alert("Personaje repetido");
     }
 
-    fetch(`${URL_BASE}/character/${id}?key=${KEY}`)
+    fetch(`${URL_BASE}/character/${id}`)
        .then((response) => response.json())
        .then((data) => {                                                         // data es el personaje que nos traemos por la petición
           if (data.name) {    // Si el data es correcto
             setCharacters((oldChars) => [...oldChars, data]);                    // agregelo a lo que ya habian
             // setCharacters([...characters, data])                              // La anterior linea se puede escribir asi también
           } else {
-            window.alert('Algo esta incorrecto');
+            alert('Algo esta incorrecto');
           }
        });
   };
