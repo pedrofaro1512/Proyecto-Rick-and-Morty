@@ -1,3 +1,23 @@
 .Nav {
-    
-}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    background-color: rgba(194, 194, 194, 0.747);
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    box-shadow: 5px 5px 5px 0px rgba(60, 60, 60, 0.25);
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-inline: 5em;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: fit-content;
+    height: fit-content;
+    gap: 5em;
+
+} 

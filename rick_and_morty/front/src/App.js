@@ -49,7 +49,7 @@ function App () {
       return alert("Personaje repetido");
     }
 
-    fetch(`${URL_BASE}/character/${id}`)
+    fetch(`${URL_BASE}/onsearch/${id}`)
        .then((response) => response.json())
        .then((data) => {                                                         // data es el personaje que nos traemos por la petición
           if (data.name) {    // Si el data es correcto

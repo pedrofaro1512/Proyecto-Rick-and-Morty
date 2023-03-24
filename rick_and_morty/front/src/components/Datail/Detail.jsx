@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-// axios hace lo mimso que fetch
+// axios hace lo mimso que fetch 
 // Se debe instalar
+import styles from './Detail.module.css'
 
 const Detail = () => {
     const {detailId} = useParams();                            // useParams guarda el valor que hay en :detail que es el id de la url
@@ -18,13 +19,13 @@ const Detail = () => {
     }, []);
 
     return(
-        <div>
+        <div className={styles.detailCards}>
             {character.name ? (     // aca se pregunta si ya llego el name, y si si muestra las siguientes lineas
                 <>
-                    <h2>{character.name}</h2>
+                    <h3>{character.name}</h3>
                     <p>{character.status}</p>
                     <p>{character.species}</p>
-                    <p>{character.gebder}</p>
+                    <p>{character.gender}</p>
                     <p>{character.origin?.name}</p>               {/* El ? indica que cuando origin llegue ahora si siga a name, porque esos procesor de petición pueden demorar y arrojara un error*/}
                     <img src={character.image} alt="img" />
                 </>
