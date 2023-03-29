@@ -4,7 +4,8 @@ import styles from './Card.module.css';
 // en la linea anterior ./ significa en la misma carpeta 
 import { connect } from "react-redux";
 import { useState } from 'react';
-import { addFavorite, removeFavorite} from "../../redux/actions";
+import { removeFavorite} from "../../redux/actions";
+import axios from "axios";
 import { useEffect } from 'react';
 
 // Se exporta por default porque es la unica función 
@@ -16,16 +17,36 @@ import { useEffect } from 'react';
 // Se hace destructuring
 // export default function Card({name, spacies, gender, image, onClose}) {
 // Si se hace destructuring no se pone => name: {props.name}, sino name: {name}
-function Card({id, name, species, gender, image, onClose, addFavorite, removeFavorite, myFavorites }) {   // Card recibe a onClose de Cards por props y las dos ultimas del dispatch de abajo
-
+function Card({
+   id,
+   name,
+   species,
+   gender,
+   image,
+   onClose,
+   removeFavorite,
+   myFavorites
+}) {   // Card recibe a onClose de Cards por props y las dos ultimas del dispatch de abajo
    const [isFav, setIsFav] = useState(false);                     // Creación del estado local llamado isFav      
+
+   const addFavorite = (character) => {
+      axios.post("http://localhost:3001/rickandmorty/fav", character)
+      .then((res) => console.log("ok"));
+   };
+
    const handleFavorite = () => {
       if (isFav) {                                                // Si isFav es true
          setIsFav(false);
          removeFavorite(id);
       } else {                                                    // Si isFav es false
          setIsFav(true);
-         addFavorite({id, name, species, gender, image, onClose, addFavorite, removeFavorite});
+         addFavorite({
+            id,
+            name,
+            species,
+            gender, 
+            image,
+         });
       }
    };
 
@@ -59,9 +80,6 @@ function Card({id, name, species, gender, image, onClose, addFavorite, removeFav
 
 const mapDispatchToProps = (dispatch) => {     // Esta dispara las funciones
    return {                                    // Retorna dos funciones que a su vez despachan
-      addFavorite: (character) => {
-         dispatch(addFavorite(character));     // Despacha un personaje completo y manda a los propr
-      },
       removeFavorite: (id) => {
          dispatch(removeFavorite(id));         // Despach un id y manda a los propr
       },

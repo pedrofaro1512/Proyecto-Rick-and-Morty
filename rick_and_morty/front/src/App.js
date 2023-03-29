@@ -42,7 +42,7 @@ function App () {
   //! EVENT HANDLERS
   // La función onSearch agrega personajes
   const onSearch = (id) => {
-    const URL_BASE = "http://localhost:3001/rickandmorty";
+    const URL_BASE = "http://localhost:3001";
     // const KEY = "10057de3f785.b338ae7bc8031b0e1a82";
 
     if(characters.find((char) => char.id === id)) {   // Si el caracter ya esta arroja un alert

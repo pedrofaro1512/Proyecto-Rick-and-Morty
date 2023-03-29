@@ -1,25 +1,45 @@
 require("dotenv").config();
-const http = require("http");
-//const data = require("./utils/data");
-const getCharById = require("./controllers/getChartById");
-const getCharDetail = require("./controllers/getCharDetail");
+const express = require("express");
+const router = require("./routes");
+const morgan = require("morgan");
+const cors = require("cors");
 
-http
-    .createServer((req, res) => {
-        res.setHeader("Access-Control-Allow-Origin", "*");
+const PORT = process.env.PORT || 3001;   // process.env.PORT es el puerto que me dara el host cuando se despliegue y se creara en las variables de entorno, o el puerto que le dicemos, osea 3001
 
-        const { url } = req
-        if (url.includes("onsearch")) {
-            const id = url.split("/").at(-1);
-            getCharById(res, id);
-        }
+const server = express();
+server.use(express.json());
+server.use(morgan("dev"));                 // morgan imprime en consola lo que le esta pasando al servidor
+server.use(cors());
 
-        if (url.includes("detail")) {
-            const id = url.split("/").at(-1);
-            getCharDetail(res, id);
-        }
-    })
-    .listen(3001, "localhost");
+server.use("/", router);
+
+server.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+});
+
+// ! Todo lo de abajo se borra porque la HW de express lo indica
+// require("dotenv").config();
+// const http = require("http");
+// //const data = require("./utils/data");
+// const getCharById = require("./controllers/getChartById");
+// const getCharDetail = require("./controllers/getCharDetail");
+
+// http
+//     .createServer((req, res) => {
+//         res.setHeader("Access-Control-Allow-Origin", "*");
+
+//         const { url } = req
+//         if (url.includes("onsearch")) {
+//             const id = url.split("/").at(-1);
+//             getCharById(res, id);
+//         }
+
+//         if (url.includes("detail")) {
+//             const id = url.split("/").at(-1);
+//             getCharDetail(res, id);
+//         }
+//     })
+//     .listen(3001, "localhost");
 
 
 
