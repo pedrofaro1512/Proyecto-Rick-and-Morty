@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getFavorites } from '../../redux/actions';
 import Card from '../Card/Card';
 import styles from './Cards.module.css'
 
@@ -8,6 +11,12 @@ import styles from './Cards.module.css'
 export default function Cards(props) {
    const { characters, onClose } = props; // Destructuring. El onClose viene de App y ahora va a Card
    // const onClose = () => window.alert("Emulamos que se cierra la card");  // Declaramos una constante para poder toda la función de onClose
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      dispatch(getFavorites());
+   }, []);
+
    return (
       <div className={styles.divCards}>
          {characters.map(({id, name, species, gender, image}) => { // Se mapea para que a cada characters le apliqe la función Card

@@ -2,11 +2,11 @@
 import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 // en la linea anterior ./ significa en la misma carpeta 
-import { connect } from "react-redux";
-import { useState } from 'react';
-import { removeFavorite} from "../../redux/actions";
+import { connect, useDispatch } from "react-redux";
+import { useState, useEffect } from 'react';
+import { removeFavorite, getFavorites} from "../../redux/actions";
 import axios from "axios";
-import { useEffect } from 'react';
+import React from 'react';
 
 // Se exporta por default porque es la unica función 
 // Nos llegan las siguientes props: name, spacies, gender, image, onClose
@@ -24,16 +24,23 @@ function Card({
    gender,
    image,
    onClose,
-   removeFavorite,
    myFavorites
 }) {   // Card recibe a onClose de Cards por props y las dos ultimas del dispatch de abajo
    const [isFav, setIsFav] = useState(false);                     // Creación del estado local llamado isFav      
-
+   const dispatch = useDispatch();
+   
    const addFavorite = (character) => {
       axios.post("http://localhost:3001/rickandmorty/fav", character)
       .then((res) => console.log("ok"));
    };
-
+   const removeFavorite = async (id) => {
+      await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
+      dispatch(getFavorites());
+      alert("Eliminado de favoritos con éxito");
+   };
+   
+   // Si el estado isFav es true, entonces settea ese estado en false, y despacha la función deleteFavorite que recibiste por props pasándole el ID del personaje como argumento.
+   // Si el estado isFav es false, entonces settea ese estado en true, y despacha la función addFavorite que recibiste por props, pasándole props como argumento.
    const handleFavorite = () => {
       if (isFav) {                                                // Si isFav es true
          setIsFav(false);

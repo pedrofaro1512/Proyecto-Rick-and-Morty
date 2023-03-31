@@ -12,7 +12,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About/About.jsx';
 import Detail from './components/Datail/Detail.jsx';
 import Form from './components/Form/Form.jsx';
-import Favorites from './components/Favorites/Favorites.js';
+import Favorites from './components/Favorites/Favorites.jsx';
 
 // Rick son objetos que vienen de data.js 
 // characters viene solo, no dentro de un objeto, porque viene por export defauld
