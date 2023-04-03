@@ -8,6 +8,7 @@ class About extends React.Component {
     render() {
         return (
             <div className={styles.about}>
+                <h1>Sobre nuestra app</h1>
                 <p>
                 Nuestra aplicación web es la solución perfecta para aquellos fanáticos de la famosa serie "Rick and Morty" 
                 que desean conocer más acerca de sus personajes favoritos. Al ingresar un número en nuestra plataforma, 

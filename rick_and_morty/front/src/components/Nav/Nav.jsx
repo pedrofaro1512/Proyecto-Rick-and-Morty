@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Nav.module.css";
 
-// Nav recibe la función onSearche en props  
+// Nav recibe la función onSearche en props
 
 class Nav extends React.Component {
     constructor(props) {
@@ -15,16 +15,16 @@ class Nav extends React.Component {
             <div className={styles.Nav}>
                 <SearchBar onSearch={this.props.onSearch} />
                 <Link to="/about">
-                    <h3>ABOUT</h3>
+                    <h3 className={styles.A}>ABOUT</h3>
                 </Link>
                 <Link to="/home">
-                    <h3>HOME</h3>
-                </Link>
-                <Link to="/" >
-                    <h3>LOGOUT</h3>
+                    <h3 className={styles.H}>HOME</h3>
                 </Link>
                 <Link to="/favorites" >
                     <h3>FAVORITES</h3>
+                </Link>
+                <Link to="/" >
+                    <h3 className={styles.F}>LOGOUT</h3>
                 </Link>
             </div>
         );

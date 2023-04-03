@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";

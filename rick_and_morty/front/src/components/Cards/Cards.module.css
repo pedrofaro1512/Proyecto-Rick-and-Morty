@@ -1,5 +1,5 @@
 .divCards {
-    background: linear-gradient(to bottom, rgba(80, 63, 59, 0.5), rgba(80, 63, 59, 0));
+    background: linear-gradient(to bottom, rgba(0, 0, 0), rgb(80, 73, 71));
     display: flex;
     flex-direction: row;
     justify-content: space-between;

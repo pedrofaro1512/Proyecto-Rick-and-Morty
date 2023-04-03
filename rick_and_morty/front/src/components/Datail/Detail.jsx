@@ -10,14 +10,18 @@ const Detail = () => {
         <div className={styles.detailCards}>
             {character.name ? (                                    // aca se pregunta si ya llego el name, y si si muestra las siguientes lineas
                 <>
-                    <h3>{character.name}</h3>
-                    <p>{character.status}</p>
-                    <p>{character.species}</p>
-                    <p>{character.gender}</p>
-                    <p>{character.origin?.name}</p>               {/* El ? indica que cuando origin llegue ahora si siga a name, porque esos procesor de petición pueden demorar y arrojara un error*/}
+                <div>
+                    <h2>{character.name}</h2>
+                    <h3>{character.status}</h3>
+                    <h3>{character.species}</h3>
+                    <h3>{character.gender}</h3>
+                    <h3>{character.origin?.name}</h3>               {/* El ? indica que cuando origin llegue ahora si siga a name, porque esos procesor de petición pueden demorar y arrojara un error*/}
+                </div>
+                <div>
                     <img src={character.image} alt="img" />
+                </div>
                 </>
-            ) : (                                                 // Si no ha llegado el name, muestre el Loading...
+                ) : (                                                 // Si no ha llegado el name, muestre el Loading...
                 <h3>Loading...</h3>
             )}
         </div>

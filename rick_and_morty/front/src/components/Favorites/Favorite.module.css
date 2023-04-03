@@ -1,7 +1,7 @@
 .divFavorite {
-    background: linear-gradient(to bottom, rgba(80, 63, 59, 0.5), rgba(80, 63, 59, 0));
+    background: radial-gradient(#322073 10px, #0D2840 30%);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     width: 90%;
     margin: auto;

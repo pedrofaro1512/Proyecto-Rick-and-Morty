@@ -68,9 +68,9 @@ function Card({
    return (
       <div className={styles.divCard}>
          {isFav ? (
-            <button onClick={handleFavorite}>❤️</button>
+            <button className={styles.divbtnRed} onClick={handleFavorite}>❤️</button>
          ) : (
-            <button onClick={handleFavorite}>🤍</button>
+            <button className={styles.divbtnWhite} onClick={handleFavorite}>🤍</button>
          )}
          <button onClick={() => onClose(id)} className={styles.closeBtn}>X</button>    {/*Finalmente onClose se ejecuta en Card al darle click al boton */}
          
