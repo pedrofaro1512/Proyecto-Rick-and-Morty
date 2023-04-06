@@ -7,6 +7,7 @@ const Detail = () => {
     const character = useCharacter();
 
     return(
+        <div className={styles.divContainer}>
         <div className={styles.detailCards}>
             {character.name ? (                                    // aca se pregunta si ya llego el name, y si si muestra las siguientes lineas
                 <>
@@ -21,9 +22,13 @@ const Detail = () => {
                     <img src={character.image} alt="img" />
                 </div>
                 </>
-                ) : (                                                 // Si no ha llegado el name, muestre el Loading...
-                <h3>Loading...</h3>
+                ) : (   
+                    <div>                                              {/* Si no ha llegado el name, muestre el Loading...*/}
+                        <h1></h1>
+                        <p>Loading...</p>
+                    </div>
             )}
+        </div>
         </div>
     );
 };

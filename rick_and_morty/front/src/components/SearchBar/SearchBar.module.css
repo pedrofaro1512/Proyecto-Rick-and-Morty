@@ -10,6 +10,11 @@
     background-color: #e0e0e0ef;
     height: 2em;
 }
+
+.searchButton:hover {
+    font-weight: bold;
+}
+
 .bar {
     width: 110%;
 }

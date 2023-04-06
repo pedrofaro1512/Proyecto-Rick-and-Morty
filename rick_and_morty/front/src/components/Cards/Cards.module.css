@@ -10,4 +10,11 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
     flex-wrap: wrap;
     gap: 1em;
+} 
+.divCards h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 8px;
 }

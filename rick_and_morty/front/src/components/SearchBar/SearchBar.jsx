@@ -28,10 +28,10 @@ export default function SearchBar({onSearch}) {
 
    return (
       <div className={style.bar}>
-         <input type='search' onChange={handleChange} className={style.searchInput} /> {/*Cada vez que cambie el input ejecuta la función handleChange*/}
+         <input type='search' onChange={handleChange} className={style.searchInput} placeholder=" id personaje"/> {/*Cada vez que cambie el input ejecuta la función handleChange*/}
          <button
             className={style.searchButton}
-            onClick={() => {                            // Cuando se le da click al boton debe ejecutar una función que ejecute onSearch
+            onClick={() => {                           // Cuando se le da click al boton debe ejecutar una función que ejecute onSearch
                onSearch(id);
             }}
          >

@@ -4,7 +4,7 @@ import { getFavorites } from '../../redux/actions';
 import Card from '../Card/Card';
 import styles from './Cards.module.css'
 
-// Recibe un arreglo de characters 
+// Recibe un arreglo de characters
 
 // La linea 8 y 9 se podrian escribir asi: export default function Cards({characters}) 
 
