@@ -15,21 +15,45 @@ class Nav extends React.Component {
             <div className={styles.Nav}>
                 <SearchBar onSearch={this.props.onSearch} />
                 <Link to="/about">
-                    <h3 className={styles.A}>ABOUT</h3>
+                    <button className={styles.B}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        ABOUT
+                    </button>
                 </Link>
                 <Link to="/home">
-                    <h3 className={styles.H}>HOME</h3>
+                    <button className={styles.B}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        HOME
+                    </button>
                 </Link>
                 <Link to="/favorites" >
-                    <h3>FAVORITES</h3>
+                    <button className={styles.B}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        FAVORITES
+                    </button>
                 </Link>
                 <Link to="/" >
-                    <h3 className={styles.F}>LOGOUT</h3>
+                    <button className={styles.B}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        LOGOUT
+                    </button>
                 </Link>
             </div>
         );
     }
 }
-// Ahora Nav le pasa onSearch a searchBar po props
+// Ahora Nav le pasa onSearch a searchBar po props 
 
 export default Nav;

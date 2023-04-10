@@ -1,17 +1,18 @@
-.searchInput {
+.bar .searchInput {
     border: 0px;
     border-radius: 15px 0px 0px 15px;
     background-color: #e0e0e0;;
     height: 2em;
 }
-.searchButton {
+.bar .searchButton {
     border: 0px;
     border-radius: 0px 15px 15px 0px;
     background-color: #e0e0e0ef;
     height: 2em;
+    cursor: pointer;
 }
 
-.searchButton:hover {
+.bar .searchButton:hover {
     font-weight: bold;
 }
 

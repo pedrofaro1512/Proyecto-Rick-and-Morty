@@ -5,7 +5,7 @@
     justify-content: space-around;
     margin: auto;
     margin-bottom: 1em;
-    margin-top: 0.5em;
+    margin-top: 0.3em;
     background-color: #0D2840;
     font-size: 20px;
     font-weight: bold;
@@ -13,27 +13,65 @@
     box-shadow: 5px 5px 5px 0px rgba(60, 60, 60, 0.25);
     padding-top: 0.1em;
     padding-bottom: 0.1em;
-    padding-inline: 5em;
+    padding-inline: 3em;
     border-radius: 5px;
     border: 1px solid black;
     width: fit-content;
-    height: fit-content;
+    height: 60px;
     gap: 5em;
 }
-.Nav h3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #322073;
+.B {
+    position: relative;
+    border: none;
+    outline: none;
+    background: #322073;
     color:#50D4F2;
+    padding: 8px 12px;
     font-size: 25px;
-    width: fit-content;
-    height: 1.5em;
-    box-shadow: 2px 2px 2px 3px rgb(0, 0, 0);
+    cursor: pointer;
+    overflow: hidden;
 }
-.Nav h3:hover {
-    color: #50d4f2c4;
-    box-shadow: 2px 2px 2px 3px rgb(161, 161, 161);
-    
+.Nav .B:hover {
+    color: #a3eeff;
+}
+.Nav .B span {
+    position: absolute;
+    background: #50D4F2;
+    transition: 0.5s;
+}
+.Nav .B span:nth-child(1) {
+    width: 100%;
+    height: 1.5px;
+    top: 0;
+    left: -100%;
+}
+.Nav .B span:nth-child(2) {
+    width: 100%;
+    height: 1.5px;
+    bottom: 0;
+    right: -100%;
+}
+.Nav .B span:nth-child(3) {
+    width: 1.5px;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+}
+.Nav .B span:nth-child(4) {
+    width: 1.5px;
+    height: 100%;
+    top: -100%;
+    right: 0;
+}
+.Nav .B:hover span:nth-child(1) {
+    left: 0;
+}
+.Nav .B:hover span:nth-child(2) {
+    right: 0;
+}
+.Nav .B:hover span:nth-child(3) {
+    bottom: 0;
+}
+.Nav .B:hover span:nth-child(4) {
+    top: 0;
 }

@@ -13,7 +13,7 @@ import React from 'react';
 // Card utiliza props de app.js
 // Los props llegan dentro de (props)
 
-// Podria escribir cada prop dentro de props 
+// Podria escribir cada prop dentro de props  
 // Se hace destructuring 
 // export default function Card({name, spacies, gender, image, onClose}) {
 // Si se hace destructuring no se pone => name: {props.name}, sino name: {name}

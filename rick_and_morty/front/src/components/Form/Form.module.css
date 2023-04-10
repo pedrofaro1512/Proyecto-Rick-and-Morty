@@ -1,9 +1,9 @@
 .form {
     background-color: rgb(190, 187, 187);
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     font-size: 30px;
     font-weight: bold;
     margin: auto;
@@ -16,4 +16,11 @@
     width: fit-content;
     height: fit-content;
     gap: 0.5em;    
+}
+.form .logB {
+    cursor: pointer;
+}
+.form p {
+    color: red;
+    font-size: 23px;
 }
