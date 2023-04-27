@@ -27,7 +27,7 @@ function App () {
   // characters es un estado de App
   //! HOOKS
   const [characters, setCharacters] = useState([]); 
-  const { pathname } = useLocation();          // Destructuring de locayion que tiene dentro una propiedad que se llama pathname
+  const { pathname } = useLocation();          // Destructuring de location que tiene dentro una propiedad que se llama pathname
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
@@ -86,10 +86,7 @@ function App () {
       {pathname !== "/" && <Nav onSearch={onSearch}/>}   {/*Si el pathname es diferente a '/', mostrar Nav*/}
       <Routes>
         <Route path="/" element={<Form Login={login} />} />
-        <Route
-          path="/home" 
-          element={<Cards characters={characters} onClose={onClose}/>} 
-        />
+        <Route path="/home" element={<Cards characters={characters} onClose={onClose}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:detailId" element={<Detail />} />    {/*El : sirve para despues recuperar ese dato, ese dato va a estar en useParams*/}
