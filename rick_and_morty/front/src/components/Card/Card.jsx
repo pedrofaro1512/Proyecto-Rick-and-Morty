@@ -76,11 +76,10 @@ function Card({
          
          <Link to={`/detail/${id}`}>     {/*Al dar click en el nombre de la tarjeta me llevara al detalle del personaje con su id */}
             <h2>Name: {name}</h2>
+            <h2>Species: {species}</h2>
+            <h2>Gender: {gender}</h2>
+            <img src={image} alt=""/>
          </Link>
-         
-         <h2>Species: {species}</h2>
-         <h2>Gender: {gender}</h2>
-         <img src={image} alt=""/>
       </div>
    );
 }
